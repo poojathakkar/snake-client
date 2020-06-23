@@ -14,13 +14,15 @@ const connect = function() {
 
   conn.on('connect', () => {
     console.log('Successfully connected to game server');
-  });
-
-  conn.on('connect', () => {
     conn.write("Name: PPT");
   });
- 
-  //return conn;
+  
+  conn.on('connect', () => {
+    setTimeout (() => {
+      conn.write("Move: up");
+    }, 1000 )
+  });
+
 }
 
 module.exports = { connect };
