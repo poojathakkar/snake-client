@@ -13,10 +13,16 @@ const connect = function() {
   });
 
   conn.on('connect', () => {
-    conn.write('Hello from client!');
+    console.log('Successfully connected to game server');
   });
 
-  return conn;
+  conn.on('connect', () => {
+    conn.write("Name: PPT");
+  });
+ 
+  //return conn;
 }
 
-module.exports = connect;
+module.exports = { connect };
+
+
